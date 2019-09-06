@@ -4,24 +4,47 @@ import keg from '../public/keg.png'
 
 export default function KegCard(props) {
   const kegStyles = {
-    width: '300px',
+    backgroundImage: `url( ${keg} )`,
+    backgroundSize: 'cover',
+    position: 'relative',
+    backgroundSize: 'auto 100%',
+    backgroundRepeat: 'no-repeat',
+  }
+  const infoStyle = {
+    color: '#120C05',
+    fontSize: '20px',
+    margin: '60px',
+    marginBottom: '25px',
+    paddingTop: '10px',
+    paddingBottom: '30px',
+    textAlign: 'center',
   }
   return(
     <div style={kegStyles}>
-      <img alt="keg card image" src={keg} />
-      <h2>{props.name}</h2>
-      <p>{props.brand}</p>
-      <p>{props.pintsLeft}</p>
-      <p>${props.price}</p>
-      <p>Alcohol {props.alcoholContent}%</p>
+      <div style={infoStyle}>
+        <h2>{props.name}</h2>
+        <p>Made by {props.brand}</p>
+        <p>{stillFull(props.pintsLeft)}</p>
+        <p>{props.price}</p>
+        <p>Alcohol {props.alcoholContent}%</p>
+        <button type="button" name="edit" style={{backgroundColor: '#CB9E7C', border: '1px solid #120C05', borderRadius: '50px', color: '#120C05', fontSize: '20px'}}>Edit</button>
+      </div>
     </div>
   )
 }
 
-kegCard.propTypes = {
-  name: propTypes.name,
-  brand: propTypes.brand,
-  price: propTypes.price,
-  pintsLeft: propTypes.pintsLeft,
-  alcoholContent: propTypes.alcoholContent
+KegCard.propTypes = {
+  name: PropTypes.string,
+  brand: PropTypes.string,
+  Price: PropTypes.number,
+  pintsLeft: PropTypes.number,
+  alcoholContent: PropTypes.string
+}
+
+function stillFull(pintsLeft) {
+  if (pintsLeft > 10) {
+    return <h1 style={{color: '#1C7220'}}>{pintsLeft}</h1>
+  } else {
+    return <h1 style={{color: 'red'}}>{pintsLeft}</h1>
+  }
 }

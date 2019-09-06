@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -18,8 +19,8 @@ export default function Navbar() {
   }
   return (
     <div style={navbarStyle}>
-      <a href='/' style={anchorStyle}>Home</a>
-      <a href='/' style={anchorStyle}>All Kegs</a>
+      <Link to='/' style={anchorStyle}>Home</Link>
+      <Link to='/KegList' style={anchorStyle}>All Kegs</Link>
       <a href='/' style={anchorStyle}>Login</a>
       <a href='/' style={anchorStyle}>Sign Up</a>
     </div>

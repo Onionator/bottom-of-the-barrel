@@ -1,6 +1,7 @@
 import React from 'react'
 import banner from '../public/banner.jpeg'
 import Navbar from './Navbar.jsx'
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   const headerStyle = {
@@ -10,8 +11,9 @@ export default function Header() {
   const bannerStyle = {
     margin: '0',
     position: 'relative',
-    width: '100%',
-    opacity: '0.6'
+    maxWidth: '100%',
+    opacity: '0.6',
+    overflow: 'none',
   }
   const h1Style = {
     color: '#CB9E7C',

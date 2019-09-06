@@ -1,78 +1,88 @@
 import React from 'react'
-import KegCard from 'KegCard'
+import KegCard from './KegCard.jsx'
 
 const kegs = [
   {
     name: 'Lager',
     brand: 'Clown',
-    pintsLeft: '100',
-    alcoholContent: '4',
-    price: '$4.00'
+    pintsLeft: 100,
+    alcoholContent: 4,
+    price: '$4'
   },
   {
     name: 'IPA',
     brand: 'Clown',
-    pintsLeft: '72',
-    alcoholContent: '7',
+    pintsLeft: 72,
+    alcoholContent: 7,
     price: '$5'
   },
   {
     name: 'Stout',
     brand: 'Clown',
-    pintsLeft: '33',
-    alcoholContent: '7',
+    pintsLeft: 33,
+    alcoholContent: 7,
     price: '$6'
   },
   {
     name: 'Porter',
     brand: 'Clown',
-    pintsLeft: '124',
-    alcoholContent: '5',
+    pintsLeft: 124,
+    alcoholContent: 5,
     price: '$5'
   },
   {
     name: 'Pale Ale',
     brand: 'Clown',
-    pintsLeft: '6',
-    alcoholContent: '5',
+    pintsLeft: 6,
+    alcoholContent: 5,
     price: '$5'
   },
   {
     name: 'Dumbo',
     brand: 'Clown',
-    pintsLeft: '9',
-    alcoholContent: '9',
+    pintsLeft: 1,
+    alcoholContent: 9,
     price: '$8'
   },
   {
     name: 'Jumbo',
     brand: 'Clown',
-    pintsLeft: '124',
-    alcoholContent: '7.5',
+    pintsLeft: 124,
+    alcoholContent: 7,
     price: '$10'
   },
   {
     name: 'Drunko',
     brand: 'Clown',
-    pintsLeft: '12',
-    alcoholContent: '25',
+    pintsLeft: 12,
+    alcoholContent: 25,
     price: '$10'
   },
   {
     name: 'Fruity IPA',
     brand: 'Clown',
-    pintsLeft: '120',
-    alcoholContent: '6.5',
+    pintsLeft: 120,
+    alcoholContent: 6,
     price: '$5'
-  },
+  }
 ]
 
 export default function KegList() {
-
+  const listStyle = {
+    display: 'inline-flex',
+    flexWrap: 'wrap',
+    marginLeft: '0',
+    marginRight: '0',
+    float: 'center',
+    justifyContent: 'center',
+  }
+  const kegStyle = {
+    textAlign: 'center',
+  }
   return(
-    <div>
+    <div style={listStyle}>
       {kegs.map((keg, index) =>
-        <KegCard
+        <KegCard style={kegStyle}
           name={keg.name}
           brand={keg.brand}
           pintsLeft={keg.pintsLeft}
