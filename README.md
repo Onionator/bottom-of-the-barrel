@@ -1,6 +1,6 @@
 Tree
 
-Any - Home Page
+#### Any - Home Page
   - Header
     - Picture
     - Navbar
@@ -18,7 +18,7 @@ Any - Home Page
       - Login
       - Sign up
 
-Patron - All kegs
+#### Patron - All kegs
   - Header
     - Picture
     - Navbar
@@ -47,7 +47,7 @@ Patron - All kegs
       - Sign up
 
 
-After Employee Login - All kegs
+#### After Employee Login - All kegs
   - Header
     - Navbar
       - All kegs -> Employee - All kegs

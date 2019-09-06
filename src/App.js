@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './components/Header'
+import Body from './components/Body'
+import barrelBackground from './public/barrelBackground.jpg'
 
-function App() {
+
+export default function App() {
+  const appStyle = {
+    backgroundColor: '#2C2922',
+    backgroundImage: 'linear-gradient(to bottom right, #2C2922, #120C05)',
+    height: '100vh',
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={appStyle}>
+        <Header />
+        <Body />
     </div>
   );
 }
-
-export default App;
