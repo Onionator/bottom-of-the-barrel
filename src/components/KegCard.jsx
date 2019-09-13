@@ -3,6 +3,12 @@ import PropTypes from 'prop-types'
 import keg from '../public/keg.png'
 
 export default function KegCard(props) {
+  function sellPint() {
+    if (props.pintsLeft > 0) {
+      return props.pintsLeft - 1
+    }
+    return props.pintsLeft
+  }
   const kegStyles = {
     backgroundImage: `url( ${keg} )`,
     backgroundSize: 'cover',
@@ -21,12 +27,13 @@ export default function KegCard(props) {
   }
   return(
     <div style={kegStyles}>
-      <div style={infoStyle}>
+      <div className={props.name} style={infoStyle}>
         <h2>{props.name}</h2>
         <p>Made by {props.brand}</p>
         <p>{stillFull(props.pintsLeft)}</p>
         <p>{props.price}</p>
         <p>Alcohol {props.alcoholContent}%</p>
+        <button onClick={sellPint} type="button" name="edit" style={{backgroundColor: '#CB9E7C', border: '1px solid #120C05', borderRadius: '50px', color: '#120C05', fontSize: '20px'}}>Sell</button>
         <button type="button" name="edit" style={{backgroundColor: '#CB9E7C', border: '1px solid #120C05', borderRadius: '50px', color: '#120C05', fontSize: '20px'}}>Edit</button>
       </div>
     </div>

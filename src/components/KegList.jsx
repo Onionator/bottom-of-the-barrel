@@ -74,7 +74,6 @@ export default function KegList() {
     marginLeft: '0',
     marginRight: '0',
     float: 'center',
-    justifyContent: 'center',
   }
   const kegStyle = {
     textAlign: 'center',
