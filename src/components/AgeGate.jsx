@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-export default function AgeGate() {
+export default function AgeGate(props) {
   const buttonStyle = {
     borderRadius: '30px',
     fontSize: '36px',
@@ -12,8 +13,13 @@ export default function AgeGate() {
   return(
     <div>
       <h1>Are you over 21?</h1>
-      <button style={buttonStyle} >Yes</button>
-      <button style={buttonStyle} >No</button>
+      <button style={buttonStyle} onClick={() => props.onAgeGateClickYes()} >Yes</button>
+      <button style={buttonStyle} onClick={() => props.onAgeGateClickNo()} >No</button>
     </div>
   );
+}
+
+AgeGate.propTypes = {
+  onAgeGateClickYes: PropTypes.func,
+  onAgeGateClickNo: PropTypes.func
 }
