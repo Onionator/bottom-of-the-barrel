@@ -5,7 +5,7 @@ import KegList from './components/KegList'
 import barrelBackground from './public/barrelBackground.jpg'
 import { Switch, Route } from 'react-router-dom'
 import AgeGate from './components/AgeGate'
-import RockStevenson from './assets/rockStevensonAlive.png'
+import RockStevenson from './assets/RockStevenson.png'
 
 
 export default class App extends React.Component {
@@ -48,6 +48,7 @@ export default class App extends React.Component {
       width: '400px',
     }
     let currentlyVisibleContent = null;
+    console.log(this.rockStevensonVisibleOnPage);
     if (this.rockStevensonVisibleOnPage) {
       if (this.state.ageGateVisibleOnPage) {
         currentlyVisibleContent = (
