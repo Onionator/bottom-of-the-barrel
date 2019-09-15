@@ -14,7 +14,7 @@ const render = (Component) => {
   ReactDOM.render(
     <AppContainer>
       <HashRouter>
-        <Component/>
+        <Component style={{ margin: 'auto' }}/>
       </HashRouter>
     </AppContainer>,
     root,

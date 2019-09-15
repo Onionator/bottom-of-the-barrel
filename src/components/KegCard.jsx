@@ -3,12 +3,7 @@ import PropTypes from 'prop-types'
 import keg from '../public/keg.png'
 
 export default function KegCard(props) {
-  function sellPint() {
-    if (props.pintsLeft > 0) {
-      return props.pintsLeft - 1
-    }
-    return props.pintsLeft
-  }
+
   const kegStyles = {
     backgroundImage: `url( ${keg} )`,
     backgroundSize: 'cover',
@@ -25,6 +20,14 @@ export default function KegCard(props) {
     paddingBottom: '30px',
     textAlign: 'center',
   }
+  const buttonStyle = {
+    backgroundColor: '#CB9E7C',
+    border: '1px solid #120C05',
+    borderRadius: '50px',
+    olor: '#120C05',
+    fontSize: '20px'
+  }
+  console.log(props);
   return(
     <div style={kegStyles}>
       <div className={props.name} style={infoStyle}>
@@ -33,8 +36,8 @@ export default function KegCard(props) {
         <p>{stillFull(props.pintsLeft)}</p>
         <p>{props.price}</p>
         <p>Alcohol {props.alcoholContent}%</p>
-        <button onClick={sellPint} type="button" name="edit" style={{backgroundColor: '#CB9E7C', border: '1px solid #120C05', borderRadius: '50px', color: '#120C05', fontSize: '20px'}}>Sell</button>
-        <button type="button" name="edit" style={{backgroundColor: '#CB9E7C', border: '1px solid #120C05', borderRadius: '50px', color: '#120C05', fontSize: '20px'}}>Edit</button>
+        <button onClick={() => props.onSellPint()} style={buttonStyle} >Sell</button>
+        <button onClick={() => props.onEditKeg()} style={buttonStyle} >Edit</button>
       </div>
     </div>
   )
@@ -45,7 +48,9 @@ KegCard.propTypes = {
   brand: PropTypes.string,
   Price: PropTypes.number,
   pintsLeft: PropTypes.number,
-  alcoholContent: PropTypes.string
+  alcoholContent: PropTypes.number,
+  onSellPint: PropTypes.func,
+  onEditKeg: PropTypes.func
 }
 
 function stillFull(pintsLeft) {

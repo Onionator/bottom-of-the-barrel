@@ -68,6 +68,7 @@ const kegs = [
 ]
 
 export default function KegList() {
+
   const listStyle = {
     display: 'inline-flex',
     flexWrap: 'wrap',

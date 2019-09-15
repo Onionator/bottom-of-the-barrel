@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <div style={headerStyle}>
       <div style={imgContainerStyle}>
-        <img alt="image of barrels" src={banner} style={bannerStyle} />
+        <img alt="image of beer" src={banner} style={bannerStyle} />
         <h1 style={h1Style}>Bottom of the Barrel Tap Room</h1>
       </div>
       <Navbar style={navbarStyle}/>
