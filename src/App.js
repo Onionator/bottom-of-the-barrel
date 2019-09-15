@@ -91,17 +91,18 @@ export default class App extends React.Component {
   }
 
   handleSellPint = () => {
-    this.setState({
-      handleSellPint: this.state.pintsLeft - 1
-    })
+    console.log('in handleSellPint');
+    // this.setState({
+    //   handleSellPint: this.state.pintsLeft - 1
+    // })
   }
 
   handleEditKeg = () => {
     let keg = this.state.kegInfo
-    console.log(keg);
-    this.setState({
-      kegInfo: null
-    })
+    console.log("this keg: ", keg);
+    // this.setState({
+    //   kegInfo: null
+    // })
   }
 
   handleAgeGateClickYes = () => {
@@ -153,7 +154,8 @@ export default class App extends React.Component {
         currentlyVisibleContent = (
           <div className="App" style={appStyle}>
               <div style={ageGateStyle}>
-                <AgeGate  onAgeGateClickYes={this.handleAgeGateClickYes}
+                <AgeGate
+                  onAgeGateClickYes={this.handleAgeGateClickYes}
                   onAgeGateClickNo={this.handleAgeGateClickNo} />
               </div>
           </div>

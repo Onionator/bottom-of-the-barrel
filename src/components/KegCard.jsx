@@ -37,7 +37,7 @@ export default function KegCard(props) {
         <p>{props.price}</p>
         <p>Alcohol {props.alcoholContent}%</p>
         <button onClick={() => props.onSellPint()} style={buttonStyle} >Sell</button>
-        <button onClick={() => props.onEditKeg()} style={buttonStyle} >Edit</button>
+        <button style={buttonStyle} onClick={() => props.onEditKeg()} >Edit</button>
       </div>
     </div>
   )
