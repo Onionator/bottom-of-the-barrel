@@ -6,7 +6,7 @@ export default function AgeGate(props) {
     borderRadius: '30px',
     fontSize: '36px',
     fontWeight: 'bold',
-    margin: '15px 15px 15px 15px',
+    margin: '15px',
     padding: '10px',
     width: '100px',
   }
