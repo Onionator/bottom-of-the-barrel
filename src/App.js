@@ -7,7 +7,6 @@ import { Switch, Route } from 'react-router-dom'
 import AgeGate from './components/AgeGate'
 import RockStevenson from './assets/RockStevenson.png'
 
-
 const kegs = [
   {
     name: 'Lager',
