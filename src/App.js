@@ -92,6 +92,9 @@ export default class App extends React.Component {
 
   handleSellPint = () => {
     console.log('in handleSellPint');
+    console.log(this.state.pintsLeft);
+    console.log(this);
+    console.log("end");
     this.setState({
       handleSellPint: this.state.pintsLeft - 1
     })
