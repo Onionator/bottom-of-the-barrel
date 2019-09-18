@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 export default function Header() {
   const headerStyle = {
-    // backgroundColor: '#2C2922',
     margin: '0',
   }
   const bannerStyle = {
