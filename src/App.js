@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Body from './components/Body'
-import KegCard from './components/KegList'
+import KegCard from './components/KegCard'
 import barrelBackground from './public/barrelBackground.jpg'
 import { Switch, Route } from 'react-router-dom'
 import AgeGate from './components/AgeGate'
@@ -92,9 +92,9 @@ export default class App extends React.Component {
 
   handleSellPint = () => {
     console.log('in handleSellPint');
-    // this.setState({
-    //   handleSellPint: this.state.pintsLeft - 1
-    // })
+    this.setState({
+      handleSellPint: this.state.pintsLeft - 1
+    })
   }
 
   handleEditKeg = () => {
