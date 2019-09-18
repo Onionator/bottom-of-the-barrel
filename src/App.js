@@ -189,7 +189,7 @@ export default class App extends React.Component {
       currentlyVisibleContent = (
         <div>
           <h1>You are too young to be here. Go away before Rock Stevenson is forced to throw you out.</h1>
-          <img alt="Rock Stevenson Picture" src={RockStevenson} />
+          <img alt="Rock Stevenson" src={RockStevenson} />
         </div>
       )
     }
