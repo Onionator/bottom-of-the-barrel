@@ -27,7 +27,12 @@ export default function KegCard(props) {
     olor: '#120C05',
     fontSize: '20px'
   }
-  console.log(props);
+
+  // function handleSellPintInKegCard(event) {
+  //   event.preventDefault();
+  //   props.onSellPint({name: name.value, brand: brand.value, price: price.value, pintsLeft: pintsLeft.value, alcoholContent: alcoholContent.value - 1})
+  // }
+
   return(
     <div style={kegStyles}>
       <div className={props.name} style={infoStyle}>
@@ -46,7 +51,7 @@ export default function KegCard(props) {
 KegCard.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
-  Price: PropTypes.number,
+  price: PropTypes.number,
   pintsLeft: PropTypes.number,
   alcoholContent: PropTypes.number,
   onSellPint: PropTypes.func,

@@ -90,10 +90,9 @@ export default class App extends React.Component {
     }
   }
 
-  handleSellPint = () => {
+  handleSellPint = (kegCard) => {
     console.log('in handleSellPint');
-    console.log(this.state.pintsLeft);
-    console.log(this);
+    console.log({...this.state.kegInfo});
     console.log("end");
     this.setState({
       handleSellPint: this.state.pintsLeft - 1
@@ -103,9 +102,9 @@ export default class App extends React.Component {
   handleEditKeg = () => {
     let keg = this.state.kegInfo
     console.log("this keg: ", keg);
-    // this.setState({
-    //   kegInfo: null
-    // })
+    this.setState({
+      kegInfo: null
+    })
   }
 
   handleAgeGateClickYes = () => {
@@ -151,7 +150,6 @@ export default class App extends React.Component {
     }
 
     let currentlyVisibleContent = null;
-    console.log(this.state.rockStevensonNotVisibleOnPage);
     if (this.state.rockStevensonNotVisibleOnPage) {
       if (this.state.ageGateVisibleOnPage) {
         currentlyVisibleContent = (
