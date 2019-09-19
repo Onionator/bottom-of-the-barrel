@@ -1,5 +1,7 @@
 # Bottom of the Barrel Tap Room
 
+Bottom of the Barrel Tap Room is the employee side of a website for a fictional tap room.
+
 ## Created by Sam Cook 9/13/19
 
 Tree
@@ -76,3 +78,8 @@ Tree
     - Navbar
       - All kegs -> Employee - All kegs
       - Sign out -> Any - Home
+
+## License
+MIT
+
+_(c) Sam Cook 2019_
