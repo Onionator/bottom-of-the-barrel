@@ -84,7 +84,7 @@ export default function KegList(props) {
   console.log(Object.keys(props.kegs));
   console.log(props.kegs[1]);
   Object.keys(props.kegs).map((kegKey, index) =>
-    console.log(props.kegs[kegKey].name)
+    console.log(props.kegs[kegKey])
   )
   return(
     <div style={listStyle}>
