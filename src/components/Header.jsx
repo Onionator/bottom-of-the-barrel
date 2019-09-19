@@ -47,6 +47,7 @@ export default function Header(props) {
     padding: '10px',
     textDecoration: 'none',
   }
+  console.log(props)
   return (
     <div style={headerStyle}>
       <div style={imgContainerStyle}>

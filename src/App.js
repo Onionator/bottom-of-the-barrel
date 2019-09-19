@@ -180,7 +180,7 @@ export default class App extends React.Component {
     })
   }
 
-  handleDisplayForm = () => {
+  handleForm = () => {
     console.log("in handleDisplayForm");
     this.setState({
       displayForm: true
@@ -263,20 +263,18 @@ export default class App extends React.Component {
       } else {
         currentlyVisibleContent = (
           <div className="App" style={appStyle}>
-            <Header onDisplayForm={this.handleDisplayForm}/>
+            <Header onDisplayForm={this.handleForm}/>
             <div style={bodyStyle}>
               <Body />
                 <div style={listStyle}>
                   <KegList kegs={this.state.masterKegList}/>
                 </div>
               <div>
+                <NewKegControl onNewKegCreation={this.handleAddingNewKegToList} />
               </div>
             </div>
           </div>
         )
-        if (this.state.displayForm) {
-          currentlyVisibleContent = (<NewKegControl onNewKegCreation={this.handleAddingNewKegToList} />)
-        }
       }
     } else {
       currentlyVisibleContent = (
