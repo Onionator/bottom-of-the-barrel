@@ -41,8 +41,6 @@ export default function KegCard(props) {
         <p>{stillFull(props.pintsLeft)}</p>
         <p>{props.price}</p>
         <p>Alcohol {props.alcoholContent}%</p>
-        <button onClick={() => props.onSellPint()} style={buttonStyle} >Sell</button>
-        <button style={buttonStyle} onClick={() => props.onEditKeg()} >Edit</button>
       </div>
     </div>
   )
@@ -51,11 +49,11 @@ export default function KegCard(props) {
 KegCard.propTypes = {
   name: PropTypes.string,
   brand: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   pintsLeft: PropTypes.number,
-  alcoholContent: PropTypes.number,
-  onSellPint: PropTypes.func,
-  onEditKeg: PropTypes.func
+  alcoholContent: PropTypes.number
+  // onSellPint: PropTypes.func,
+  // onEditKeg: PropTypes.func
 }
 
 function stillFull(pintsLeft) {
@@ -65,3 +63,6 @@ function stillFull(pintsLeft) {
     return <h1 style={{color: 'red'}}>{pintsLeft}</h1>
   }
 }
+
+// <button onClick={() => props.onSellPint()} style={buttonStyle} >Sell</button>
+// <button style={buttonStyle} onClick={() => props.onEditKeg()} >Edit</button>

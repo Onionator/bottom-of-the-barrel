@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-export default function Navbar() {
+export default function Navbar(props) {
   const navbarStyle = {
     borderBottom: '4px solid #A1988F',
     padding: '15px',
@@ -19,9 +20,13 @@ export default function Navbar() {
   return (
     <div style={navbarStyle}>
       <Link to='/' style={anchorStyle}>Home</Link>
-      <Link to='/KegList' style={anchorStyle}>All Kegs</Link>
+      <a style={anchorStyle} onClick={() => props.onDisplayForm()} >Add Keg</a>
       <a href='/' style={anchorStyle}>Login</a>
       <a href='/' style={anchorStyle}>Sign Up</a>
     </div>
   )
+}
+
+Navbar.propTypes = {
+  onDisplayForm: PropTypes.func
 }

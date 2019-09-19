@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import Body from './components/Body'
-import KegCard from './components/KegCard'
+import KegList from './components/KegList'
 import barrelBackground from './public/barrelBackground.jpg'
 import { Switch, Route } from 'react-router-dom'
 import AgeGate from './components/AgeGate'
@@ -9,7 +9,21 @@ import RockStevenson from './assets/RockStevenson.png'
 import { v4 } from 'uuid';
 import NewKegControl from './components/NewKegControl';
 
-const kegList = [
+// {kegList.map((keg, index) =>
+//   <KegCard style={kegStyle}
+//     name={keg.name}
+//     brand={keg.brand}
+//     pintsLeft={keg.pintsLeft}
+//     alcoholContent={keg.alcoholContent}
+//     price={keg.price}
+//     key={v4}
+//     onSellPint={this.handleSellPint}
+//     onEditKeg={this.handleEditKeg}
+//   />
+// )}
+
+
+const kegs = [
   {
     name: 'Lager',
     brand: 'Clown',
@@ -87,7 +101,73 @@ export default class App extends React.Component {
         pintsLeft: null,
         alcoholContent: null,
         price: null
-      }
+      },
+      masterKegList: {
+        1: {
+          name: 'Lager',
+          brand: 'Clown',
+          pintsLeft: 100,
+          alcoholContent: 4,
+          price: '$4'
+        },
+        2: {
+          name: 'IPA',
+          brand: 'Clown',
+          pintsLeft: 72,
+          alcoholContent: 7,
+          price: '$5'
+        },
+        3: {
+          name: 'Stout',
+          brand: 'Clown',
+          pintsLeft: 33,
+          alcoholContent: 7,
+          price: '$6'
+        },
+        4: {
+          name: 'Porter',
+          brand: 'Clown',
+          pintsLeft: 124,
+          alcoholContent: 5,
+          price: '$5'
+        },
+        5: {
+          name: 'Pale Ale',
+          brand: 'Clown',
+          pintsLeft: 6,
+          alcoholContent: 5,
+          price: '$5'
+        },
+        6: {
+          name: 'Dumbo',
+          brand: 'Clown',
+          pintsLeft: 1,
+          alcoholContent: 9,
+          price: '$8'
+        },
+        7: {
+          name: 'Jumbo',
+          brand: 'Clown',
+          pintsLeft: 124,
+          alcoholContent: 7,
+          price: '$10'
+        },
+        8: {
+          name: 'Drunko',
+          brand: 'Clown',
+          pintsLeft: 12,
+          alcoholContent: 25,
+          price: '$10'
+        },
+        9: {
+          name: 'Fruity IPA',
+          brand: 'Clown',
+          pintsLeft: 120,
+          alcoholContent: 6,
+          price: '$5'
+        }
+      },
+      displayForm: true
     }
   }
 
@@ -97,6 +177,13 @@ export default class App extends React.Component {
     console.log("end");
     this.setState({
       handleSellPint: this.state.pintsLeft - 1
+    })
+  }
+
+  handleDisplayForm = () => {
+    console.log("in handleDisplayForm");
+    this.setState({
+      displayForm: true
     })
   }
 
@@ -120,13 +207,15 @@ export default class App extends React.Component {
     })
   }
 
-  handleAddingNewKegToList(newKeg){
-    var newKegId = v4()
-    var newKegList = Object.assign({}, this.state.kegList, {
-      [newKegId]: newKeg
+  handleAddingNewKegToList = (newKeg) => {
+    console.log("old keg list: " + this.state.masterKegList);
+    let newKegId = v4()
+    let newKegList = Object.assign({}, this.state.masterKegList, {
+    [newKegId]: newKeg
     });
-    newKegList[newKegId].formattedWaitTime = newKegList[newKegId].timeOpen.fromNow(true);
     this.setState({masterKegList: newKegList});
+    this.setState({displayForm: false})
+    console.log("new keg list: " + newKegList);
   }
 
   render() {
@@ -174,30 +263,20 @@ export default class App extends React.Component {
       } else {
         currentlyVisibleContent = (
           <div className="App" style={appStyle}>
-            <Header />
+            <Header onDisplayForm={this.handleDisplayForm}/>
             <div style={bodyStyle}>
               <Body />
-                (<div style={listStyle}>
-                  {kegList.map((keg, index) =>
-                    <KegCard style={kegStyle}
-                      name={keg.name}
-                      brand={keg.brand}
-                      pintsLeft={keg.pintsLeft}
-                      alcoholContent={keg.alcoholContent}
-                      price={keg.price}
-                      key={v4}
-                      onSellPint={this.handleSellPint}
-                      onEditKeg={this.handleEditKeg}
-                    />
-                  )}
+                <div style={listStyle}>
+                  <KegList kegs={this.state.masterKegList}/>
                 </div>
-              )
               <div>
-                <NewKegControl onNewKegCreation={this.handleAddingNewKegToList} /> >
               </div>
             </div>
           </div>
         )
+        if (this.state.displayForm) {
+          currentlyVisibleContent = (<NewKegControl onNewKegCreation={this.handleAddingNewKegToList} />)
+        }
       }
     } else {
       currentlyVisibleContent = (

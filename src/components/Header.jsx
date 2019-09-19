@@ -1,9 +1,10 @@
 import React from 'react'
 import banner from '../public/banner.jpeg'
-import Navbar from './Navbar.jsx'
+// import Navbar from './Navbar.jsx'
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'
 
-export default function Header() {
+export default function Header(props) {
   const headerStyle = {
     margin: '0',
   }
@@ -28,11 +29,23 @@ export default function Header() {
     height: '100%',
     verticalAlign: 'middle',
   }
-  const navbarStyle = {
-    margin: '0',
-  }
   const imgContainerStyle = {
     verticalAlign: 'bottom',
+  }
+  const navbarStyle = {
+    borderBottom: '4px solid #A1988F',
+    padding: '15px',
+    textAlign: 'center',
+    margin: '0',
+  }
+  const anchorStyle = {
+    color: '#CB9E7C',
+    fontSize: '3vw',
+    fontWeight: 'bold',
+    marginLeft: '2vw',
+    marginRight: '2vw',
+    padding: '10px',
+    textDecoration: 'none',
   }
   return (
     <div style={headerStyle}>
@@ -40,7 +53,16 @@ export default function Header() {
         <img alt="image of beer" src={banner} style={bannerStyle} />
         <h1 style={h1Style}>Bottom of the Barrel Tap Room</h1>
       </div>
-      <Navbar style={navbarStyle}/>
+      <div style={navbarStyle}>
+        <a style={anchorStyle}>Home</a>
+        <button style={anchorStyle} onClick={() => props.onDisplayForm()} >Add Keg</button>
+        <a href='/' style={anchorStyle}>Login</a>
+        <a href='/' style={anchorStyle}>Sign Up</a>
+      </div>
     </div>
   )
+}
+
+Header.propTypes = {
+  onDisplayForm: PropTypes.func
 }
