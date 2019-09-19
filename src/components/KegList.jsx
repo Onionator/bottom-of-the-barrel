@@ -82,15 +82,19 @@ export default function KegList(props) {
     textAlign: 'center',
   }
   console.log(Object.keys(props.kegs));
+  console.log(props.kegs[1]);
+  Object.keys(props.kegs).map((kegKey, index) =>
+    console.log(props.kegs[kegKey].name)
+  )
   return(
     <div style={listStyle}>
-      {Object.keys(props.kegs).map((keg, index) =>
+      {Object.keys(props.kegs).map((kegKey, index) =>
         <KegCard style={kegStyle}
-          name={keg.name}
-          brand={keg.brand}
-          pintsLeft={keg.pintsLeft}
-          alcoholContent={keg.alcoholContent}
-          price={keg.price}
+          name={props.kegs[kegKey].name}
+          brand={props.kegs[kegKey].brand}
+          pintsLeft={props.kegs[kegKey].pintsLeft}
+          alcoholContent={props.kegs[kegKey].alcoholContent}
+          price={props.kegs[kegKey].price}
           key={v4}
         />
       )}
