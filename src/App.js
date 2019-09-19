@@ -6,8 +6,10 @@ import barrelBackground from './public/barrelBackground.jpg'
 import { Switch, Route } from 'react-router-dom'
 import AgeGate from './components/AgeGate'
 import RockStevenson from './assets/RockStevenson.png'
+import { v4 } from 'uuid';
+import NewKegControl from './components/NewKegControl';
 
-const kegs = [
+const kegList = [
   {
     name: 'Lager',
     brand: 'Clown',
@@ -118,6 +120,15 @@ export default class App extends React.Component {
     })
   }
 
+  handleAddingNewKegToList(newKeg){
+    var newKegId = v4()
+    var newKegList = Object.assign({}, this.state.kegList, {
+      [newKegId]: newKeg
+    });
+    newKegList[newKegId].formattedWaitTime = newKegList[newKegId].timeOpen.fromNow(true);
+    this.setState({masterKegList: newKegList});
+  }
+
   render() {
     const appStyle = {
       // backgroundColor: '#2C2922',
@@ -167,20 +178,23 @@ export default class App extends React.Component {
             <div style={bodyStyle}>
               <Body />
                 (<div style={listStyle}>
-                  {kegs.map((keg, index) =>
+                  {kegList.map((keg, index) =>
                     <KegCard style={kegStyle}
                       name={keg.name}
                       brand={keg.brand}
                       pintsLeft={keg.pintsLeft}
                       alcoholContent={keg.alcoholContent}
                       price={keg.price}
-                      key={index}
+                      key={v4}
                       onSellPint={this.handleSellPint}
                       onEditKeg={this.handleEditKeg}
                     />
                   )}
                 </div>
               )
+              <div>
+                <NewKegControl onNewKegCreation={this.handleAddingNewKegToList} /> >
+              </div>
             </div>
           </div>
         )
